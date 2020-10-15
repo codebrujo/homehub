@@ -35,3 +35,5 @@ config/test.php
 config/db.php
 config/params.php
 config/web.php
+config/console.php
+config/test_db.php
