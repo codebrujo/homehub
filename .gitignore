@@ -34,3 +34,4 @@ tests/_support/_generated
 config/test.php
 config/db.php
 config/params.php
+config/web.php
