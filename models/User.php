@@ -99,6 +99,8 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
+        //$hash = password_hash($this->password, PASSWORD_DEFAULT);
+        //return password_verify($password, $this->password_hash);
         return $this->password === $password;
     }
 }
