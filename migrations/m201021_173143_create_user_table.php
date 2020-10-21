@@ -25,12 +25,12 @@ class m201021_173143_create_user_table extends Migration
         $command = Yii::$app->db->createCommand("INSERT INTO user(username, passwordHash, accessLevel) VALUES (:username, :passwordHash, :accessLevel) ");
         $command->bindValues([
             'username' => 'admin',
-            'passwordHash' => '$2y$10$CKM5A3Ibm92ch5UJE.f42ukJbE80ZQw5mzwNLKsqZ1oHum3qcEpGG',
+            'passwordHash' => '',
             'accessLevel' => 0,
         ])->execute();
         $command->bindValues([
             'username' => 'demo',
-            'passwordHash' => '$2y$10$okoYW3d.l/LR4ME1hYrpZ.zq3PjK0My5AeLC1yQO1ix50NqZEuaDq',
+            'passwordHash' => '',
             'accessLevel' => 6,
         ])->execute();
 
