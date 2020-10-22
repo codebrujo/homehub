@@ -13,6 +13,7 @@ class m201021_173143_create_user_table extends Migration
      */
     public function safeUp()
     {
+        $credentials = require __DIR__ . '/../config/credentials.php';
         $this->createTable('user', [
             'id' => $this->primaryKey(),
             'username' => $this->string(50)->notNull()->unique(),
@@ -25,12 +26,12 @@ class m201021_173143_create_user_table extends Migration
         $command = Yii::$app->db->createCommand("INSERT INTO user(username, passwordHash, accessLevel) VALUES (:username, :passwordHash, :accessLevel) ");
         $command->bindValues([
             'username' => 'admin',
-            'passwordHash' => '',
+            'passwordHash' => $credentials['adminPasswordHash'],
             'accessLevel' => 0,
         ])->execute();
         $command->bindValues([
             'username' => 'demo',
-            'passwordHash' => '',
+            'passwordHash' => $credentials['demoPasswordHash'],
             'accessLevel' => 6,
         ])->execute();
 
