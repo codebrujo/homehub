@@ -14,7 +14,9 @@ class MainController extends Controller
         echo '<p>'.'actionIndex'.'</p>';
         $username = 'demo';
         $res = User::findOne(['username' => $username]);
+        echo '<pre>';
         var_dump($res);
+        echo '</pre>';
         exit;
     }
     public function actionIotpoint()
