@@ -76,7 +76,7 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
-        if (!RoleController::userHasAccess('Site', 'Login')) {
+        if (!RoleController::userHasAccess($this->action)) {
             return $this->render('noRights');
         }
 
@@ -115,7 +115,7 @@ class SiteController extends Controller
             return $this->render('notAuthorizedGuest');
         }
 
-        if (!RoleController::userHasAccess('Site', 'Contact')) {
+        if (!RoleController::userHasAccess($this->action)) {
             return $this->render('noRights');
         }
 
@@ -137,7 +137,9 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        if (!RoleController::userHasAccess('Site', 'About')) {
+//        var_dump($this->action->controller->id);
+//        exit;
+        if (!RoleController::userHasAccess($this->action)) {
             return $this->render('noRights');
         }
         return $this->render('about');
@@ -148,7 +150,7 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->render('notAuthorizedGuest');
         }
-        if (!RoleController::userHasAccess('Site', 'Architecture')) {
+        if (!RoleController::userHasAccess($this->action)) {
             return $this->render('noRights');
         }
         return $this->render('architecture');
@@ -160,7 +162,7 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->render('notAuthorizedGuest');
         }
-        if (!RoleController::userHasAccess('Site', 'ApiDescription')) {
+        if (!RoleController::userHasAccess($this->action)) {
             return $this->render('noRights');
         }
         return $this->render('apiDescription');
@@ -171,7 +173,7 @@ class SiteController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->render('notAuthorizedGuest');
         }
-        if (!RoleController::userHasAccess('Site', 'Visualisation')) {
+        if (!RoleController::userHasAccess($this->action)) {
             return $this->render('noRights');
         }
         return $this->render('visualisation');

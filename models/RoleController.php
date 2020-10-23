@@ -9,10 +9,12 @@ use yii\base\Model;
 
 class RoleController extends Model
 {
-    public static function userHasAccess($controller, $action){
-        if(is_null($controller) || is_null($action)){
+    public static function userHasAccess($action){
+        if(is_null($action)){
             return false;
         }
+        $action_name = $action->id;
+        $controller = $action->controller->id;
         $role = 100;
 
         if (!Yii::$app->user->isGuest) {
@@ -22,7 +24,7 @@ class RoleController extends Model
         $res = tables\Rolecontroller::find()
             ->select('isGranted')
             ->where(['=','controllerName',$controller])
-            ->andWhere(['=','actionName',$action])
+            ->andWhere(['=','actionName',$action_name])
             ->andWhere(['>=','role_id',$role])
             ->limit(1)
             ->one();

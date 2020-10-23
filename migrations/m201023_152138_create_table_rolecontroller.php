@@ -61,7 +61,7 @@ class m201023_152138_create_table_rolecontroller extends Migration
         $command->bindValues([
             'role_id' => '10',
             'controllerName' => 'Site',
-            'actionName' => 'ApiDescription',
+            'actionName' => 'Api-Description',
             'isGranted' => true,
         ])->execute();
         $command->bindValues([
