@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\RoleController;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -75,6 +76,9 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
+        if (!RoleController::userHasAccess('Site', 'Login')) {
+            return $this->render('noRights');
+        }
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
@@ -94,6 +98,7 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
+
         Yii::$app->user->logout();
 
         return $this->goHome();
@@ -106,6 +111,14 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->render('notAuthorizedGuest');
+        }
+
+        if (!RoleController::userHasAccess('Site', 'Contact')) {
+            return $this->render('noRights');
+        }
+
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
             Yii::$app->session->setFlash('contactFormSubmitted');
@@ -124,6 +137,9 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        if (!RoleController::userHasAccess('Site', 'About')) {
+            return $this->render('noRights');
+        }
         return $this->render('about');
     }
 
@@ -131,27 +147,34 @@ class SiteController extends Controller
     {
         if (Yii::$app->user->isGuest) {
             return $this->render('notAuthorizedGuest');
-        }else{
-            return $this->render('architecture');
         }
+        if (!RoleController::userHasAccess('Site', 'Architecture')) {
+            return $this->render('noRights');
+        }
+        return $this->render('architecture');
+
     }
 
     public function actionApiDescription()
     {
         if (Yii::$app->user->isGuest) {
             return $this->render('notAuthorizedGuest');
-        }else{
-            return $this->render('apiDescription');
         }
+        if (!RoleController::userHasAccess('Site', 'ApiDescription')) {
+            return $this->render('noRights');
+        }
+        return $this->render('apiDescription');
     }
 
     public function actionVisualisation()
     {
         if (Yii::$app->user->isGuest) {
             return $this->render('notAuthorizedGuest');
-        }else{
-            return $this->render('visualisation');
         }
+        if (!RoleController::userHasAccess('Site', 'Visualisation')) {
+            return $this->render('noRights');
+        }
+        return $this->render('visualisation');
     }
 
 
