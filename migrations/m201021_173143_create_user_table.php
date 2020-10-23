@@ -19,19 +19,23 @@ class m201021_173143_create_user_table extends Migration
             'username' => $this->string(50)->notNull()->unique(),
             'passwordHash' => $this->string(255)->notNull(),
             'authKey' => $this->string(60),
-            'accessToken' => $this->string(60),
+            'accessToken' => $this->string(120),
             'accessLevel' => $this->integer()->defaultValue(10),
         ]);
 
-        $command = Yii::$app->db->createCommand("INSERT INTO user(username, passwordHash, accessLevel) VALUES (:username, :passwordHash, :accessLevel) ");
+        $command = Yii::$app->db->createCommand("INSERT INTO user(username, passwordHash, authKey, accessToken, accessLevel) VALUES (:username, :passwordHash, :authKey, :accessToken, :accessLevel) ");
         $command->bindValues([
             'username' => 'admin',
-            'passwordHash' => $credentials['adminPasswordHash'],
+            'passwordHash' => $credentials['PasswordHash']['admin'],
+            'authKey' => $credentials['AuthKey']['admin'],
+            'accessToken' => $credentials['AccessToken']['admin'],
             'accessLevel' => 0,
         ])->execute();
         $command->bindValues([
             'username' => 'demo',
-            'passwordHash' => $credentials['demoPasswordHash'],
+            'passwordHash' => $credentials['PasswordHash']['demo'],
+            'authKey' => $credentials['AuthKey']['demo'],
+            'accessToken' => $credentials['AccessToken']['demo'],
             'accessLevel' => 6,
         ])->execute();
 

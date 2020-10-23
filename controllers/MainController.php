@@ -4,19 +4,14 @@
 namespace app\controllers;
 
 
-use app\models\tables\User;
 use yii\web\Controller;
 
 class MainController extends Controller
 {
     public function actionIndex()
     {
-        echo '<p>'.'actionIndex'.'</p>';
-        $username = 'demo';
-        $res = User::findOne(['username' => $username]);
-        echo '<pre>';
-        var_dump($res);
-        echo '</pre>';
+        echo 'actionIndex';
+        //var_dump('actionIndex');
         exit;
     }
     public function actionIotpoint()
