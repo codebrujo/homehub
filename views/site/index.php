@@ -11,7 +11,7 @@ $this->title = $title;
     <div class="jumbotron">
         <h1>HOME HUB</h1>
 
-        <p class="lead">Smart home sensors and devices connected for you.</p>
+        <p class="lead">Smart home sensors and devices connected together here.</p>
 
     </div>
 
