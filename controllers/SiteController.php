@@ -126,4 +126,33 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionArchitecture()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->render('notAuthorizedGuest');
+        }else{
+            return $this->render('architecture');
+        }
+    }
+
+    public function actionApiDescription()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->render('notAuthorizedGuest');
+        }else{
+            return $this->render('apiDescription');
+        }
+    }
+
+    public function actionVisualisation()
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->render('notAuthorizedGuest');
+        }else{
+            return $this->render('visualisation');
+        }
+    }
+
+
 }

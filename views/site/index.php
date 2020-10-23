@@ -21,32 +21,32 @@ $this->title = $title;
             <div class="col-lg-4">
                 <h2>Architecture</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>This section describes how smart components interface with each other and server side.
+                    Due to different WiFi signal level microcontroller firmware implements mesh-network.
+                    In other words each controller knows about his neighbours and play router role to
+                    forward the messages from controllers placed out of WiFi coverage.
+                </p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><a class="btn btn-default" href="?r=site/architecture">Architecture view &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>API</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>This section describes server API for smart devices and external services. Server side implements
+                    RESTful methods to collect IoT data or provide the telemetry to external consumers.
+                </p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-default" href="?r=site/api-description">API description &raquo;</a></p>
             </div>
             <div class="col-lg-4">
                 <h2>Visualization</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Page to view controllers and it's sensors data placement in house layout.
+                    In accordance to user role it is possible to view indicators or manage
+                    electrical equipment switches, temperature control settings and behavior scenarios.
+                    </p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-default" href="?r=site/visualisation">Visualisation page &raquo;</a></p>
             </div>
         </div>
 
