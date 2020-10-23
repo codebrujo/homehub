@@ -22,7 +22,13 @@ class m201021_173143_create_user_table extends Migration
             'accessToken' => $this->string(120),
             'accessLevel' => $this->integer()->defaultValue(10),
         ]);
-
+        //accessLevel:
+        //0 - sa
+        //1 - location admin
+        //3 - location power user
+        //5 - location user
+        //7 - device
+        //9 - demo
         $command = Yii::$app->db->createCommand("INSERT INTO user(username, passwordHash, authKey, accessToken, accessLevel) VALUES (:username, :passwordHash, :authKey, :accessToken, :accessLevel) ");
         $command->bindValues([
             'username' => 'admin',
@@ -36,7 +42,7 @@ class m201021_173143_create_user_table extends Migration
             'passwordHash' => $credentials['PasswordHash']['demo'],
             'authKey' => $credentials['AuthKey']['demo'],
             'accessToken' => $credentials['AccessToken']['demo'],
-            'accessLevel' => 6,
+            'accessLevel' => 9,
         ])->execute();
 
     }

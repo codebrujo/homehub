@@ -41,7 +41,7 @@ $this->title = $title;
             <div class="col-lg-4">
                 <h2>Visualization</h2>
 
-                <p>Page to view controllers and it's sensors data placement in house layout.
+                <p>Page to view controllers and it's sensors data placement within the house layout.
                     In accordance to user role it is possible to view indicators or manage
                     electrical equipment switches, temperature control settings and behavior scenarios.
                     </p>
