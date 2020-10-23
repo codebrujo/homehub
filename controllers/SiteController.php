@@ -61,7 +61,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $custom_params = require __DIR__ . '/../config/custom_params.php';
+        return $this->render('index', ['title' => $custom_params['appTitle']]);
     }
 
     /**
